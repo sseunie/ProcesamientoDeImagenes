@@ -50,6 +50,7 @@ public class Frame extends javax.swing.JFrame {
         radioButtonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Selección de posición"));
 
         positionGroup.add(upperLeftRadioButton);
+        upperLeftRadioButton.setSelected(true);
         upperLeftRadioButton.setText("Esquina superior izquierda");
         upperLeftRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,16 +115,17 @@ public class Frame extends javax.swing.JFrame {
         );
 
         imagePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imagePanel.setRequestFocusEnabled(false);
 
         javax.swing.GroupLayout imagePanelLayout = new javax.swing.GroupLayout(imagePanel);
         imagePanel.setLayout(imagePanelLayout);
         imagePanelLayout.setHorizontalGroup(
             imagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 722, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         imagePanelLayout.setVerticalGroup(
             imagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
         checkBoxPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Selección del canal"));
@@ -178,7 +180,7 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(checkBoxPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(checkBoxPanelLayout.createSequentialGroup()
                         .addComponent(greenChannel)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 6, Short.MAX_VALUE))
                     .addGroup(checkBoxPanelLayout.createSequentialGroup()
                         .addComponent(blueChannel)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -208,17 +210,9 @@ public class Frame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(imagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(radioButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(checkBoxPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(218, 218, 218)
@@ -228,7 +222,15 @@ public class Frame extends javax.swing.JFrame {
                                 .addComponent(santiagoLabel)
                                 .addGap(104, 104, 104)
                                 .addComponent(stefanyLabel)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(imagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(radioButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkBoxPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -240,7 +242,7 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(radioButtonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(checkBoxPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(imagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -254,18 +256,34 @@ public class Frame extends javax.swing.JFrame {
 
     private void upperRightRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upperRightRadioButtonActionPerformed
         // TODO add your handling code here:
+        if (upperRightRadioButton.isSelected()) {
+            ImagePanel.changeCoordinate(620, 0);
+            repaint();
+        }
     }//GEN-LAST:event_upperRightRadioButtonActionPerformed
 
     private void lowerLeftRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowerLeftRadioButtonActionPerformed
         // TODO add your handling code here:
+        if (lowerLeftRadioButton.isSelected()) {
+            ImagePanel.changeCoordinate(0, 340);
+            repaint();
+        }
     }//GEN-LAST:event_lowerLeftRadioButtonActionPerformed
 
     private void lowerRightRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowerRightRadioButtonActionPerformed
         // TODO add your handling code here:
+        if (lowerRightRadioButton.isSelected()) {
+            ImagePanel.changeCoordinate(620, 340);
+            repaint();
+        }
     }//GEN-LAST:event_lowerRightRadioButtonActionPerformed
 
     private void upperLeftRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upperLeftRadioButtonActionPerformed
         // TODO add your handling code here:
+        if (upperLeftRadioButton.isSelected()) {
+            ImagePanel.changeCoordinate(0, 0);
+            repaint();
+        }
     }//GEN-LAST:event_upperLeftRadioButtonActionPerformed
 
     private void allChannelsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_allChannelsStateChanged
@@ -279,8 +297,9 @@ public class Frame extends javax.swing.JFrame {
             redChannel.setSelected(true);
             greenChannel.setSelected(true);
             blueChannel.setSelected(true);
-            ImagePanel.changeChannel(true,true,true,true);
-            repaint();
+            callRepaint();
+        } else {
+            allChannels.setSelected(true);
         }
     }//GEN-LAST:event_allChannelsActionPerformed
 
@@ -291,8 +310,7 @@ public class Frame extends javax.swing.JFrame {
         } else {
             allChannels.setSelected(false);
         }
-        ImagePanel.changeChannel(allChannels.isSelected(),redChannel.isSelected(),greenChannel.isSelected(),blueChannel.isSelected());
-        repaint();
+        callRepaint();
     }//GEN-LAST:event_redChannelActionPerformed
 
     private void greenChannelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenChannelActionPerformed
@@ -302,8 +320,7 @@ public class Frame extends javax.swing.JFrame {
         } else {
             allChannels.setSelected(false);
         }
-        ImagePanel.changeChannel(allChannels.isSelected(),redChannel.isSelected(),greenChannel.isSelected(),blueChannel.isSelected());
-        repaint();
+        callRepaint();
     }//GEN-LAST:event_greenChannelActionPerformed
 
     private void blueChannelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blueChannelActionPerformed
@@ -313,10 +330,14 @@ public class Frame extends javax.swing.JFrame {
         } else {
             allChannels.setSelected(false);
         }
-        ImagePanel.changeChannel(allChannels.isSelected(),redChannel.isSelected(),greenChannel.isSelected(),blueChannel.isSelected());
-        repaint();
+        callRepaint();
     }//GEN-LAST:event_blueChannelActionPerformed
 
+    private void callRepaint(){
+        ImagePanel.changeChannel(redChannel.isSelected(),greenChannel.isSelected(),blueChannel.isSelected());
+        repaint();
+    }
+    
     /**
      * @param args the command line arguments
      */
